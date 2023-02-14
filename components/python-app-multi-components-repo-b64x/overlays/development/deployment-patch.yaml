@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  name: python-app-multi-components-repo-b64x
+  namespace: karthik-jk-tenant
+spec:
+  replicas: 1
+  selector: {}
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+    spec:
+      containers:
+      - image: quay.io/redhat-appstudio/user-workload@sha256:d4ed90199731dfc2497413d3ed78c3b67800a1875855d1dd9e4fe1370a7f504a
+        name: my-python
+        resources: {}
+status: {}
