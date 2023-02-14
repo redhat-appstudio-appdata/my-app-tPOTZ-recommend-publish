@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: nodejs-app-multi-components-repo-bnt1
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: nodejs-app-multi-components-repo-bnt1
+    app.kubernetes.io/part-of: my-app
+  name: nodejs-app-multi-components-repo-bnt1
+  namespace: karthik-jk-tenant
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodejs-app
+      app.kubernetes.io/instance: nodejs-app-multi-components-repo-bnt1
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: nodejs-app
+        app.kubernetes.io/instance: nodejs-app-multi-components-repo-bnt1
+    spec:
+      containers:
+      - image: quay.io/redhat-appstudio/user-workload:karthik-jk-tenant-nodejs-app-multi-components-repo-bnt1
+        name: my-nodejs
+        ports:
+        - containerPort: 3001
+          name: http
+          protocol: TCP
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: 500m
+            memory: 1Gi
+          requests:
+            cpu: 10m
+            memory: 50Mi
+status: {}
