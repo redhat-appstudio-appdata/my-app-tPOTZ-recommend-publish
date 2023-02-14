@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app.kubernetes.io/created-by: application-service
+    app.kubernetes.io/instance: python-app-multi-components-repo-b64x
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: python-app-multi-components-repo-b64x
+    app.kubernetes.io/part-of: my-app
+  name: python-app-multi-components-repo-b64x
+  namespace: karthik-jk-tenant
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python-app
+      app.kubernetes.io/instance: python-app-multi-components-repo-b64x
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: python-app
+        app.kubernetes.io/instance: python-app-multi-components-repo-b64x
+    spec:
+      containers:
+      - image: quay.io/redhat-appstudio/user-workload:karthik-jk-tenant-python-app-multi-components-repo-b64x
+        name: my-python
+        ports:
+        - containerPort: 8081
+          name: http
+          protocol: TCP
+        - containerPort: 8080
+        resources:
+          limits:
+            cpu: 500m
+            memory: 128Mi
+          requests:
+            cpu: 10m
+            memory: 50Mi
+status: {}
