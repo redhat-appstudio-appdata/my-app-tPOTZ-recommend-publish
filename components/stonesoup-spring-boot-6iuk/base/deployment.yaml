@@ -25,7 +25,7 @@ spec:
         app.kubernetes.io/instance: stonesoup-spring-boot-6iuk
     spec:
       containers:
-      - image: quay.io/redhat-appstudio/user-workload:karthik-jk-tenant-stonesoup-spring-boot-6iuk
+      - image: quay.io/redhat-appstudio/user-workload@sha256:7a4cec39d55787273a23a690d8e4ace89864754e69d29ac3d64cbbfee7dbde4d
         name: my-java-springboot
         ports:
         - containerPort: 8081
