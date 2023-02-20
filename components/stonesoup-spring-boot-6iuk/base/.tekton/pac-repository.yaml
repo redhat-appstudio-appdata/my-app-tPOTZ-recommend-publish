@@ -1,0 +1,15 @@
+apiVersion: pipelinesascode.tekton.dev/v1alpha1
+kind: Repository
+metadata:
+  annotations:
+    appstudio.openshift.io/application: my-app
+    appstudio.openshift.io/component: stonesoup-spring-boot-6iuk
+    build.appstudio.openshift.io/build: "true"
+    build.appstudio.openshift.io/type: build
+    build.appstudio.openshift.io/version: "0.1"
+    pipelines.appstudio.openshift.io/type: build
+  creationTimestamp: null
+  name: stonesoup-spring-boot-6iuk
+  namespace: karthik-jk-tenant
+spec:
+  url: https://github.com/karthikjeeyar/stonesoup-spring-boot
